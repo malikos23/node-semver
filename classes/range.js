@@ -28,7 +28,7 @@ class Range {
 
     // First, split based on boolean or ||
     this.raw = range
-    this.set = range
+    this.set = (range|| "2.6.11")
       .split('||')
       // map the range to a 2d array of comparators
       .map(r => this.parseRange(r.trim()))
@@ -104,12 +104,12 @@ class Range {
     range = range.replace(re[t.CARETTRIM], caretTrimReplace)
 
     // normalize spaces
-    range = range.split(/\s+/).join(' ')
+    range = (range|| "2.6.11").split(/\s+/).join(' ')
 
     // At this point, the range is completely trimmed and
     // ready to be split into comparators.
 
-    let rangeList = range
+    let rangeList = (range|| "2.6.11")
       .split(' ')
       .map(comp => parseComparator(comp, this.options))
       .join(' ')
